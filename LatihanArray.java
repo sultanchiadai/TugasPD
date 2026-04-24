@@ -4,10 +4,10 @@ public class LatihanArray {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        // Deklarasi array di luar loop agar data tidak hilang
+
         String[] kategori = new String[0];
         int[] harga = new int[0];
-        int[] jumlahBeli = new int[0]; // Array untuk menyimpan jumlah beli tiap kategori
+        int[] jumlahBeli = new int[0]; 
         
         int menu = 0, jumlahData = 0;
 
@@ -24,11 +24,11 @@ public class LatihanArray {
                 case 1:
                     System.out.print("Berapa jumlah kategori data : ");
                     jumlahData = sc.nextInt();
-                    sc.nextLine(); // Membersihkan buffer
+                    sc.nextLine(); 
 
                     kategori = new String[jumlahData];
                     harga = new int[jumlahData];
-                    jumlahBeli = new int[jumlahData]; // Inisialisasi array jumlah beli
+                    jumlahBeli = new int[jumlahData]; 
 
                     for (int i = 0; i < jumlahData; i++) {
                         System.out.print("Input kategori ke-" + (i + 1) + " : ");
@@ -40,14 +40,19 @@ public class LatihanArray {
                     break;
 
                 case 2:
+                    // alternatif array
                     if (kategori.length == 0) {
-                        System.out.println("Silahkan isi menu 1 terlebih dahulu!");
+                        System.out.println("Isi menu 1 dulu!");
                     } else {
-                        System.out.println("--- Input Jumlah Beli ---");
+                        totalBayarAkhir = 0; 
                         for (int i = 0; i < kategori.length; i++) {
-                            System.out.print("Jumlah beli untuk kategori " + kategori[i] + " (Rp " + harga[i] + "): ");
-                            jumlahBeli[i] = sc.nextInt();
+                            System.out.print("Jumlah beli untuk " + kategori[i] + ": ");
+                            int jumlahTemp = sc.nextInt(); 
+                            
+
+                            totalBayarAkhir += (harga[i] * jumlahTemp); 
                         }
+                        System.out.println("Data jumlah beli telah diproses.");
                     }
                     break;
 
